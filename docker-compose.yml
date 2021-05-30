@@ -36,3 +36,15 @@ services:
             - 9000:9000
         depends_on: 
             - database
+
+    websql:
+        image: neimheadh/phppgadmin
+        environment: 
+            - POSTGRES_HOST=database
+            - POSTGRES_PORT=5432
+            - POSTGRES_USER=sonar
+            - POSTGRES_PASS=secret
+        ports:  
+            - 9180:80
+        depends_on: 
+            - database
